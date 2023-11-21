@@ -1,3 +1,5 @@
+## Tutorial for the 'Camera Follow' component.
+
 This is the 2nd tutorial for a component, this time Camera Following,
 
 In this, we need the camera to follow the player. Make sure you set the Y position of the main camera to 5, and Z to -5.
