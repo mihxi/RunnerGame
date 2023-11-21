@@ -41,7 +41,42 @@ Back in the script, we can use a loop instead of the copy and pasted function. T
 SpawnTile();
 }`
 
+![image](https://github.com/mihxi/RunnerGame/assets/146852911/92e61d59-283d-4147-917e-ac2377ecc8dd)
 
+What this line does is iterate the loop 15 times. As long as the value of i is less than 15, the loop will continue reiterating. 
+
+We do however need to keep spawning tiles as we move. 
+
+Go to the Ground Tile prefab and add a Box Collider component. Check the is trigger box. Then change the values to the following, and it should look like:
+
+![image](https://github.com/mihxi/RunnerGame/assets/146852911/2a1e419b-bda6-43b8-96f4-28fa670389c4)
+
+We'll need a new script now. Name it GroundTile. 
+
+Inside it, we'll need a GroundSpawner variable. 
+Then set the reference in the start function. 
+
+`groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();`
+
+We then need to create a function called OnTriggerExit. 
+`void OnTriggerExit (Collider other)`
+
+This is a method that will be called when something exits the trigger zone. 
+
+Now, we need to go back to the GroundSpawner script and put public in front of the SpawnTile void, so we can access it in the other script. 
+
+Back in the GroundTile script, we need this line:
+
+`groundSpawner.SpawnTile();`
+`Destroy(gameObject, 2);`
+
+What these 2 lines do is spawning tiles while serving a 2 second delay before destroying a previous tile, thus we have continuous generation and destruction. That's that for the scripts, so save.
+
+In unity, select the GroundTile and apply the script to it. Exit the prefab view, and test the game. We should now have tiles that spawn ahead, while the previous ones destroy themselves. 
+
+The final optional step, is adding a material to the ground. Find one that you like, then add it to the assets folder. Create a new material and name it. Then, next to albedo in the inspector, there is a circle. Click on it and select your chosen texture. Then, drag and drop it onto the plane, and you have yourself a textured ground.
+
+That's all for this tutorial.
 
 
 
