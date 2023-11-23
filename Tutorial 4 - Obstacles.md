@@ -49,7 +49,7 @@ In this line we are finding the first active instance of the player movement scr
 
 we also need a function for OnCollisionEnter:
 
-`void onCollisionEnter (Coolision collision)`
+`void onCollisionEnter (Colision collision)`
 
 Head to the PlayerMovement script and add a new variable, type boolean and call it alive.
 
